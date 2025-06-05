@@ -1,0 +1,42 @@
+---
+import Download from "../../assets/download.svg"
+import Button from "../ui/Button";
+
+
+function downloadCV()  {
+    const link = document.createElement('a');
+    link.href = '/cv.pdf';
+    link.download = 'cv_enzo.pdf'; // Nombre personalizado
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+---
+<section id="about" class="relative w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-muted/80 to-white dark:from-black-pearl-950/80 dark:dark:to-black-pearl-950 transition-colors duration-300">
+	<div class="container px-4 md:px-6 relative z-10">
+		<div class="flex flex-col items-center justify-center space-y-4 text-center">
+			<div class="space-y-2">
+				<h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-black dark:text-white transition-colors duration-300">Sobre mí</h2>
+				<p class="mx-auto max-w-[700px] text-muted-foreground md:text-xl dark:text-gray-300 transition-colors duration-300">
+					Soy un desarrollador apasionado en el desarrollo de aplicaciones web.
+				</p>
+				</div>
+				<div class="mx-auto max-w-3xl space-y-4 text-center">
+				<p class="text-black dark:text-gray-200 transition-colors duration-300">
+					Me especializo en la creación de sitios web y aplicaciones responsivos e intuitivos utilizando tecnologías modernas.
+				</p>
+				<p class="text-black dark:text-gray-200 transition-colors duration-300">
+					Cuando no estoy programando, me puedes encontrar ejercitando, jugando, pintando o con otras obligaciones. 
+					Creo en el aprendizaje continuo y siempre estoy explorando nuevas tecnologías y frameworks para ampliar mis habilidades.
+				</p>
+				<div class="pt-4 flex items-center justify-center">
+					<Button onClick={downloadCV} className='flex items-center gap-2 w-fit bg-black-pearl-500 text-white px-8 text-sm font-medium shadow-sm hover:bg-black-pearl-400/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring dark:bg-black-pearl-700 dark:hover:bg-black-pearl-600 transition-colors duration-300'>
+						<Download/>
+						Descargar CV Completo
+					</Button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+

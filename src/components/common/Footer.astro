@@ -1,0 +1,41 @@
+---
+import Github from "../../assets/github.svg";
+import LinkedIn from "../../assets/linkedin.svg";
+import Email from "../../assets/email.svg";
+---
+<footer class="w-full border-border border-t py-6 relative z-10 bg-background-light dark:bg-background-dark">
+    <div class="container flex flex-col items-center justify-center gap-4 px-4 md:px-6 md:flex-row md:justify-between">
+       <p class="text-sm text-muted-foreground dark:text-muted-foreground-dark">© {new Date().getFullYear()} Enzo Velo. All rights reserved.</p>
+       <div class="flex gap-4">
+
+          <div class="flex items-center gap-4">
+             <a href="mailto:enzovelo7@gmail.com" class="text-muted-foreground hover:text-gray-800 dark:text-muted-foreground-dark dark:hover:text-gray-200 transition-colors duration-200">
+                <Email/>
+             </a>
+          </div>
+                
+          <div class="flex items-center gap-4">
+            <a 
+                href="https://www.linkedin.com/in/enzo-raul-velo-45100521b/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-muted-foreground hover:text-gray-800 dark:text-muted-foreground-dark dark:hover:text-gray-200 transition-colors duration-200"
+             >
+                <LinkedIn/>
+             </a>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <a
+                href="https://github.com/Enzo2023Dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-muted-foreground hover:text-gray-800 dark:text-muted-foreground-dark dark:hover:text-gray-200 transition-colors duration-200"
+             >
+                <Github/>
+             </a>
+          </div>
+          
+       </div>
+    </div>
+</footer>

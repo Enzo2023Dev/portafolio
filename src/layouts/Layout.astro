@@ -1,0 +1,37 @@
+---
+import '@fontsource-variable/inter';
+import './src/styles/global.css'
+
+interface Props {
+    title: string
+}
+
+const { title } = Astro.props
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<meta name="viewport" content="width=device-width" />
+	<meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+</head>
+<body class="">
+    <slot/>
+</body>
+</html>
+
+<style is:global>
+	@view-transition {
+		navigation: auto;
+	}
+
+	html{
+		scroll-behavior: smooth;
+	}
+
+	body {
+		font-family: 'Inter Variable', sans-serif;
+	}
+</style>

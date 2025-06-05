@@ -1,0 +1,128 @@
+---
+import Button from "../ui/Button.tsx";
+import Link from "../ui/Link.tsx";
+
+import Toogle from "../../assets/toogle.svg"
+import Sun from "../../assets/sun.svg"
+import Moon from "../../assets/moon.svg"
+
+const navItems = [
+    { name: "Sobre mí", href: "#about" },
+    { name: "Habilidades", href: "#skills" },
+    { name: "Proyectos", href: "#projects" },
+    { name: "Contacto", href: "#contact" },
+]
+
+---
+<header class="sticky top-0 z-50 w-full border-b border-border dark:border-border-dark bg-gray-100/65 dark:bg-black-pearl-950/65 backdrop-blur-lg supports-[backdrop-blur-lg]:bg-background/70 dark:supports-[backdrop-blur-lg]:bg-background-dark/70">
+    <div class="container flex h-16 items-center justify-between">
+        <Link href="/" className="font-bold text-xl hover:text-black-pearl-500 hover:no-underline text-background-dark dark:text-background">
+            Enzo Velo
+        </Link>
+
+        <nav class="hidden items-center lg:flex gap-2">
+            {navItems.map((item) => (
+                <Link
+                    href={item.href}
+                    variant="button"
+                    className="text-sm text-background-dark dark:text-background hover:bg-gray-100 dark:hover:bg-gray-800 active:text-black-pearl-500 hover:no-underline"
+                >
+                    {item.name}
+                </Link>
+            ))}
+
+            <Button id="theme-toggle" variant="secondary" className="mt-2 px-3">
+                <Sun class="block dark:hidden text-background-dark dark:text-background"/>
+                <Moon class="hidden dark:block text-background-dark dark:text-background"/>
+            </Button>
+        </nav>
+
+        <div class="flex lg:hidden gap-3">
+            <!-- not working -->
+            <Button id="theme-mobile-toggle" variant="secondary" className="mt-2 px-3">
+                <Sun class="block dark:hidden text-background-dark dark:text-background"/>
+                <Moon class="hidden dark:block text-background-dark dark:text-background"/>
+            </Button>
+            <!-- end not working -->
+
+            <Button id="menu-toggle" variant="secondary" className="mt-2">
+                <span class="sr-only">Toggle menu</span>
+                <Toogle/>
+            </Button>
+        </div>
+    </div>
+
+    <nav id="mobile-menu" class="container lg:hidden sticky flex space-y-4 flex-col gap-2 px-8 mx-auto mb-6 mt-4" style="display: none;">
+        {navItems.map((item) => (
+            <Link
+                href={item.href}
+                variant="button"
+                className="text-sm text-background-dark dark:text-background hover:bg-gray-100 dark:hover:bg-gray-800 active:text-black-pearl-500 hover:no-underline"
+            >
+                {item.name}
+            </Link>
+        ))}
+    </nav>
+</header>
+
+<script>
+    // Mobile menu
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("mobile-menu");
+
+    toggle?.addEventListener("click", () => {
+        if (!menu) return;
+        if (menu.style.display === "none" || !menu.style.display) {
+            menu.style.display = "flex";
+        } else {
+            menu.style.display = "none";
+        }
+    });
+
+    // Close mobile menu if toggle button is hidden (e.g., on desktop)
+    window.addEventListener("resize", () => {
+        const toggleBtn = document.getElementById("menu-toggle");
+        const menu = document.getElementById("mobile-menu");
+        if (toggleBtn && menu) {
+            const isVisible = toggleBtn.offsetParent !== null;
+            if (!isVisible) {
+                menu.style.display = "none";
+            }
+        }
+    });
+
+    // Dark mode toggle
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle?.addEventListener("click", () => {
+        if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+        } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+        }
+    });
+
+    // Dark mode toggle
+    const themeMobileToggle = document.getElementById("theme-mobile-toggle");
+    themeMobileToggle?.addEventListener("click", () => {
+        if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+        } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+        }
+    });
+
+    // Set theme on load
+    if (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+        document.documentElement.classList.add("dark");
+    } else {
+        document.documentElement.classList.remove("dark");
+    }
+</script>
+

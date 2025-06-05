@@ -1,0 +1,64 @@
+---
+import Github from "../../assets/github.svg";
+import LinkedIn from "../../assets/linkedin.svg";
+
+import Link from "../ui/Link.tsx";
+---
+
+<section id="hero" class="relative w-full py-12 md:py-24 lg:py-32 xl:py-48 overflow-hidden bg-gradient-to-b from-white to-muted/80 dark:from-black-pearl-950 dark:to-black-pearl-950/80 transition-colors duration-300">
+	<div class="container px-4 md:px-6 relative z-10">
+		<div class="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+			<div class="flex flex-col justify-center space-y-4">
+				
+				<div class="space-y-2">
+					<h1 class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/snug text-black dark:text-white">Enzo Velo</h1>
+					<p class="max-w-[600px] text-muted-foreground md:text-lg dark:text-gray-300">Desarrollador Full Stack dispuesto a aprender y esforzarse</p>
+				</div>
+
+				<div class="flex flex-col gap-2 min-[400px]:flex-row">
+					<Link href='/cv.pdf' variant="button" className="bg-black-pearl-500 text-white px-8 text-sm font-medium shadow-sm hover:bg-black-pearl-400/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring dark:bg-black-pearl-700 dark:hover:bg-black-pearl-600">
+						Ver CV
+					</Link>
+					<Link href="mailto:enzovelo7@gmail.com" variant="button" className="border border-gray-300 rounded-md px-8 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-100/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-800/90">
+						Contáctame
+					</Link>
+				</div>
+
+				<div class="flex items-center justify-start mt-2">
+							
+					<div class="flex items-center gap-4">
+						<Link
+							variant="button"
+							href="https://www.linkedin.com/in/enzo-raul-velo-45100521b/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-muted-foreground hover:text-gray-800 transition-colors duration-200 dark:text-gray-400 dark:hover:text-white"
+						>
+							<LinkedIn/>
+						</Link>
+					</div>
+
+					<div class="flex items-center gap-4">
+						<Link
+							variant="button"
+							href="https://github.com/Enzo2023Dev"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-muted-foreground hover:text-gray-800 transition-colors duration-200 dark:text-gray-400 dark:hover:text-white"
+						>
+							<Github/>
+						</Link>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="flex items-center justify-center">
+				<div class="relative h-[300px] w-[300px] md:h-[400px] md:w-[400px] rounded-full overflow-hidden border-4 border-muted dark:border-gray-700">
+					<img src="/src/img/picofme.png" alt="Enzo Velo" class="object-cover bg-white dark:bg-black-pearl-900">
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>

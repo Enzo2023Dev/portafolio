@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-background: #fff;
+    --color-foreground: #020713;
+
+    --color-muted: #f1f5f9;
+    --color-muted-foreground: #637288;
+    
+    --color-border: #e1e7ef;
+
+    --color-black-pearl-50: #f0f6ff;
+    --color-black-pearl-100: #e0edfe;
+    --color-black-pearl-200: #badafd;
+    --color-black-pearl-300: #7dbdfc;
+    --color-black-pearl-400: #389bf8;
+    --color-black-pearl-500: #0e7fe9;
+    --color-black-pearl-600: #0261c7;
+    --color-black-pearl-700: #034da1;
+    --color-black-pearl-800: #074385;
+    --color-black-pearl-900: #0c396e;
+    --color-black-pearl-950: #041225;
+
+    --color-background-dark: #020713;
+    --color-foreground-dark: #f1f5f9;
+
+    --color-muted-dark: #1a2233;
+    --color-muted-foreground-dark: #a3adc2;
+
+    --color-border-dark: #232b3a;
+
+    --color-black-pearl-50-dark: #041225;
+    --color-black-pearl-100-dark: #0c396e;
+    --color-black-pearl-200-dark: #074385;
+    --color-black-pearl-300-dark: #034da1;
+    --color-black-pearl-400-dark: #0261c7;
+    --color-black-pearl-500-dark: #0e7fe9;
+    --color-black-pearl-600-dark: #389bf8;
+    --color-black-pearl-700-dark: #7dbdfc;
+    --color-black-pearl-800-dark: #badafd;
+    --color-black-pearl-900-dark: #e0edfe;
+    --color-black-pearl-950-dark: #f0f6ff;
+}
+
+@utility container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 2rem;
+
+    @media (width >= theme(--breakpoint-2xl)) {
+        max-width: 1400px;
+    }
+}
+
+@tailwind utilities
