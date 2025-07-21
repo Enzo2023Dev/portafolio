@@ -6,7 +6,16 @@ import Badge from "../ui/Badge.tsx"
 import Button from "../ui/Button.tsx"
 import Card from "../ui/Card.tsx"
 
-const projects = [];
+const projects = [
+    {
+        title: "Stream Links Motion",
+        description: "Un sitio web para compartir enlaces de streaming con animaciones fluidas",
+        image: "/img/stream-links-motion.png",
+        tech: ["React", "TypeScript", "Tailwind CSS", "Motion"],
+        code: "https://github.com/Enzo2023Dev/stream-links-motion",
+        demo: "https://stream-links-motion.vercel.app/"
+    },
+];
 ---
 
 <section id="projects" class="relative w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-white to-muted/50 dark:from-black-pearl-950 dark:to-black-pearl-900 transition-colors duration-300">
@@ -22,13 +31,13 @@ const projects = [];
                 {Array.isArray(projects) && projects.length > 0 ? (
                     projects.map((project, index) => (
                         <Card key={index} className="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 transition-colors duration-300">
-                            <div class="relative h-[200px] w-full">
+                            <div class="relative h-[200px] w-full rounded-t-md overflow-hidden">
                                 <img src={project.image || "/placeholder.svg"} alt={project.title} class="object-cover rounded-t-md" />
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">{project.title}</h3>
                                 <p class="text-muted-foreground mb-4 dark:text-zinc-400 transition-colors duration-300">{project.description}</p>
-                                 <div class="flex flex-wrap gap-2 mb-4">
+                                <div class="flex flex-wrap gap-2 mb-4">
                                     {project.tech.map((tech) => (
                                         <Badge className="bg-zinc-100 dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-600 transition-colors duration-300">
                                             {tech}
@@ -36,18 +45,21 @@ const projects = [];
                                     ))}
                                 </div>
                                 <div class="flex gap-2">
-                                <Button variant="secondary" className="flex items-center gap-1 hover:text-black dark:hover:text-white transition-colors duration-300">
-                                    <Github/>
-                                    Code
-                                </Button>
-                                <Button variant="secondary" className="flex items-center gap-1 hover:text-black dark:hover:text-white transition-colors duration-300">
-                                    <ExternalLink/>
-                                    Demo
-                                </Button>
+                                    <Button variant="secondary" className="flex items-center gap-1 hover:text-black dark:hover:text-white transition-colors duration-300">
+                                        <a href={project.code} target="_blank" rel="noopener noreferrer" class="flex items-center gap-1">
+                                            <Github/>
+                                            Code
+                                        </a>
+                                    </Button>
+                                    <Button variant="secondary" className="flex items-center gap-1 hover:text-black dark:hover:text-white transition-colors duration-300">
+                                        <a href={project.demo} target="_blank" rel="noopener noreferrer" class="flex items-center gap-1">
+                                            <ExternalLink/>
+                                            Demo
+                                        </a>
+                                    </Button>
+                                </div>
                             </div>
-                        </div>
-
-                    </Card>
+                        </Card>
                 ))
             ) : (
                 <p class="col-span-full text-center text-muted-foreground dark:text-zinc-400 transition-colors duration-300">No hay proyectos disponibles.</p>
